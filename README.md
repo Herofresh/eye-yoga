@@ -26,8 +26,9 @@ Pick **START** (Return), **SNOOZE 5M** or **SKIP** (Esc). Skipping moves on to t
 slot as if the break were done. Finishing a break earns **+1 XP**.
 
 The menu bar shows the countdown (`18:02`). From its menu you can start a full routine or a
-micro break now, pause, set the micro interval (15/20/30 min) and the full interval
-(45/60/90 min), and toggle sound. Locking the screen or sleeping pauses the countdown and
+micro break now, pause, set the micro interval (15/20/30 min or **Custom…**) and the full
+interval (45/60/90 min or **Custom…**, any value from 1 to 240 min), and toggle sound.
+Intervals are saved and survive restarts. Locking the screen or sleeping pauses the countdown and
 restarts it when you come back. Being idle for 5 minutes counts as a rest and restarts it too.
 
 ## Requirements

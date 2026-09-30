@@ -4,6 +4,7 @@ import Foundation
 final class Settings {
     static let microChoices = [15, 20, 30]
     static let fullChoices = [45, 60, 90]
+    static let minutesRange = 1...240
     static let snoozeSeconds: TimeInterval = 5 * 60
 
     private let defaults: UserDefaults
