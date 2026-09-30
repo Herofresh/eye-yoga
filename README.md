@@ -31,6 +31,11 @@ interval (45/60/90 min or **Custom…**, any value from 1 to 240 min), and toggl
 Intervals are saved and survive restarts. Locking the screen or sleeping pauses the countdown and
 restarts it when you come back. Being idle for 5 minutes counts as a rest and restarts it too.
 
+## Download
+
+Grab the latest **EyeYoga-*.zip** from [Releases](https://github.com/Herofresh/eye-yoga/releases/latest);
+the release notes explain installing and starting at login.
+
 ## Requirements
 
 macOS 14+ and the Swift toolchain from the Command Line Tools (`xcode-select --install`).
@@ -55,6 +60,12 @@ swift run EyeYoga --interval-seconds 30      # micro break every 30 s, full rout
 ```
 
 `--idle-seconds N` shortens the idle reset the same way. Both flags accept at least 5.
+
+## Releasing
+
+Bump `VERSION`, commit, then run `scripts/release.sh`. It tests, builds a universal app,
+zips it, tags `v<VERSION>` and publishes the GitHub release with `RELEASE_NOTES.md`
+(needs `gh` logged in as the repo owner).
 
 ## Font
 

@@ -3,8 +3,11 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
-swift build -c release
-bin="$(swift build -c release --show-bin-path)/EyeYoga"
+version="$(cat VERSION)"
+# Universal so the release also runs on Intel Macs.
+archs=(--arch arm64 --arch x86_64)
+swift build -c release "${archs[@]}"
+bin="$(swift build -c release "${archs[@]}" --show-bin-path)/EyeYoga"
 
 app=build/EyeYoga.app
 rm -rf "$app"
@@ -21,7 +24,7 @@ cat > "$app/Contents/Info.plist" <<PLIST
     <key>CFBundleExecutable</key><string>EyeYoga</string>
     <key>CFBundleName</key><string>Eye Yoga</string>
     <key>CFBundlePackageType</key><string>APPL</string>
-    <key>CFBundleShortVersionString</key><string>1.0.0</string>
+    <key>CFBundleShortVersionString</key><string>$version</string>
     <key>CFBundleVersion</key><string>1</string>
     <key>LSMinimumSystemVersion</key><string>14.0</string>
     <key>LSUIElement</key><true/>
@@ -31,4 +34,4 @@ cat > "$app/Contents/Info.plist" <<PLIST
 PLIST
 
 codesign --force --sign - "$app"
-echo "Built $app"
+echo "Built $app ($version)"
