@@ -1,0 +1,8 @@
+.build/
+build/
+*.app
+.DS_Store
+.swiftpm/
+.tokensave/
+.claude/settings.local.json
+.claude/.headroom_wrap_marker.json
